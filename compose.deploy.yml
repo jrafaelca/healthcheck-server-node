@@ -1,6 +1,6 @@
 services:
   app:
-    image: ${IMAGE:-ghcr.io/jrafaelca/healthcheck-server-node:latest}
+    image: ghcr.io/jrafaelca/healthcheck-server-node:latest
     pull_policy: always
     environment:
       HOST: ${HOST:-0.0.0.0}
