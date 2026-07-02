@@ -1,0 +1,10 @@
+services:
+  app:
+    image: ${IMAGE:-ghcr.io/jrafaelca/healthcheck-server-node:latest}
+    pull_policy: always
+    environment:
+      HOST: ${HOST:-0.0.0.0}
+      PORT: ${PORT:-3000}
+    ports:
+      - "${PORT:-3000}:${PORT:-3000}"
+    restart: unless-stopped
