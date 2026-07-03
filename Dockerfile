@@ -1,8 +1,20 @@
 FROM node:24-alpine AS base
 WORKDIR /app
 
-FROM base AS runtime
-ENV NODE_ENV=production
+FROM base AS deps
 COPY package.json ./
+
+FROM deps AS build
 COPY src ./src
+
+FROM base AS development
+ENV NODE_ENV=development
+COPY --from=build /app/src ./src
+COPY package.json ./
+CMD ["node", "--env-file-if-exists=.env", "src/server.js"]
+
+FROM base AS production
+ENV NODE_ENV=production
+COPY --from=build /app/src ./src
+COPY package.json ./
 CMD ["node", "src/server.js"]

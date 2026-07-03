@@ -2,10 +2,12 @@ services:
   app:
     build:
       context: .
-      target: runtime
+      target: development
     working_dir: /app
     environment:
       HOST: ${HOST:-0.0.0.0}
       PORT: ${PORT:-3000}
+    volumes:
+      - .:/app
     ports:
       - "${PORT:-3000}:${PORT:-3000}"
