@@ -15,10 +15,11 @@ Minimal Node 24 HTTP server for exposing a health endpoint.
 
 ## Environment variables
 
-Copy `.env.example` to `.env` and adjust the values if needed.
-
 - `HOST` default: `0.0.0.0`
 - `PORT` default: `3000`
+
+You can set them through your shell, Docker Compose, or any deployment environment.
+`.env.example` is just a reference template.
 
 ## Run locally
 
