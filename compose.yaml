@@ -1,9 +1,6 @@
 services:
   app:
     image: ghcr.io/jrafaelca/healthcheck-server-node:latest
-    build:
-      context: .
-      target: production
     pull_policy: always
     environment:
       HOST: ${HOST:-0.0.0.0}

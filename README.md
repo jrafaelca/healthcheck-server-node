@@ -38,15 +38,15 @@ npm test
 Start the app from source with a local build:
 
 ```bash
-docker compose up --build
+docker compose -f compose.local.yaml up --build
 ```
 
-## Deploy with the published image
+## Production deploy
 
 Use the image published in GHCR:
 
 ```bash
-docker compose -f compose.deploy.yml up -d
+docker compose -f compose.yaml up -d
 ```
 
 ## Image
@@ -61,6 +61,6 @@ ghcr.io/jrafaelca/healthcheck-server-node:latest
 
 - `src/server.js`: HTTP server
 - `test/server.test.js`: native tests with `node:test`
-- `compose.yml`: compose for local development
-- `compose.deploy.yml`: compose for deployment using GHCR
+- `compose.local.yaml`: compose for local development
+- `compose.yaml`: compose for production using GHCR
 - `.github/workflows/publish.yml`: CI/CD that tests and publishes the image
